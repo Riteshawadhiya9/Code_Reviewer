@@ -1,16 +1,67 @@
-# React + Vite
+# Code Reviewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Code Reviewer is a full-stack web app that turns pasted code into structured, developer-friendly feedback. The UI delivers a focused, editor-like experience with line numbers, a live line counter, and one-click copy for the review output. A Node/Express API calls the Google Gemini model to generate reviews that highlight bugs, performance concerns, security risks, and testability tips.
 
-Currently, two official plugins are available:
+## Features
+- Split-pane editor and analysis layout
+- Live line count while typing
+- Loading and error states for clear feedback
+- Copy-to-clipboard for review output
+- Backend validation and AI review generation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- React + Vite
+- Axios
+- Node.js + Express
+- Google Gemini API
+- Custom CSS dark theme
 
-## React Compiler
+## Project Structure
+```
+Code_Reviewer/
+	Backend/
+		server.js
+		src/
+			app.js
+			controllers/
+			routes/
+			services/
+	Frontend/
+		index.html
+		src/
+			App.jsx
+			App.css
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+### 1) Backend
+```
+cd Backend
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Create a `.env` file in `Backend/`:
+```
+GOOGLE_GEMINI_KEY=your_api_key_here
+```
+
+Run the server:
+```
+node server.js
+```
+
+### 2) Frontend
+```
+cd Frontend
+npm install
+npm run dev
+```
+
+## Usage
+1. Paste code into the left editor.
+2. Click **Review Code**.
+3. Read the AI feedback on the right and copy it if needed.
+
+## Notes
+- This project is intended for learning and rapid iteration, not as a replacement for human code review.
